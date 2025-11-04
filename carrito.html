@@ -1,38 +1,105 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Carrito — Impulso Digital</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito - Impulso Digital</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Carrito</h1>
-    <div class="card" id="contenido-carrito"></div>
-    <p style="text-align:center;">
-      <a id="btn-pagar" class="btn" href="#" target="_blank">Pagar ahora</a>
-    </p>
-  </div>
+
+ <!-- Barra superior -->
+  <header class="barra-superior">
+    <div class="contenedor-barra">
+      <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
+      <nav class="menu-principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="packs.html">Packs</a></li>
+          <li><a href="excel.html">Excel</a></li>
+        </ul>
+      </nav>
+      <a href="carrito.html" class="icono-carrito">🛒</a>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h2>Tu carrito</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Pack</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+    </table>
+
+    <div class="cart-total" style="text-align: right; margin-top: 1rem;">
+      <h3>Total: <span id="cart-total">0 €</span></h3>
+      <button id="clear-cart">Vaciar carrito</button>
+      <a id="checkout" class="boton-pack" href="#" target="_blank" style="margin-left: 1rem; background-color: #0070ba;">Pagar con PayPal</a>
+    </div>
+  </main>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
-    const horas = params.get('pack');
-    const precios = { '20': 120, '40': 220, '100': 480 };
-    const precio = precios[horas] ?? null;
+    let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
-    const cont = document.getElementById('contenido-carrito');
-    const btnPagar = document.getElementById('btn-pagar');
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartCount = document.getElementById('cart-count');
+      const cartTotal = document.getElementById('cart-total');
+      const checkoutBtn = document.getElementById('checkout');
 
-    if (!horas || !precio) {
-      cont.innerHTML = '<p>No hay ningún artículo en el carrito.</p>';
-      btnPagar.style.display = 'none';
-    } else {
-      cont.innerHTML = `
-        <p>Has añadido el Pack de ${horas} horas</p>
-        <p>Precio: ${precio} €</p>
-      `;
-      btnPagar.href = `https://www.paypal.me/mburgadap/${precio}`;
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${item.nombre}</td>
+          <td><input type="number" value="${item.quantity}" min="1" data-index="${index}" class="quantity-input"></td>
+          <td>${item.price} €</td>
+          <td>${itemTotal.toFixed(2)} €</td>
+          <td><button class="remove-item" data-index="${index}">X</button></td>
+        `;
+        cartItems.appendChild(tr);
+      });
+
+      cartCount.textContent = cart.length;
+      cartTotal.textContent = total.toFixed(2) + ' €';
+      checkoutBtn.href = `https://www.paypal.me/mburgadap/${total.toFixed(2)}`;
+      localStorage.setItem('carrito', JSON.stringify(cart));
     }
+
+    document.getElementById('cart-items').addEventListener('input', e => {
+      if (e.target.classList.contains('quantity-input')) {
+        const index = e.target.dataset.index;
+        cart[index].quantity = parseInt(e.target.value);
+        updateCart();
+      }
+    });
+
+    document.getElementById('cart-items').addEventListener('click', e => {
+      if (e.target.classList.contains('remove-item')) {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        updateCart();
+      }
+    });
+
+    document.getElementById('clear-cart').addEventListener('click', () => {
+      cart = [];
+      updateCart();
+    });
+
+    updateCart();
   </script>
+
 </body>
 </html>
