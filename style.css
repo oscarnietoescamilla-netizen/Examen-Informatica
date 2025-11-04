@@ -1,14 +1,14 @@
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Georgia', serif;
   margin: 0;
-  background: #ffffff;
-  color: #2c2c2c;
+  background: #fffaf0; /* fondo crema claro */
+  color: #3a3a3a;
   text-align: center;
 }
 
 /* Barra superior */
 .barra-superior {
-  background: #1a1a1a;
+  background: #d2b48c; /* tono crema tostado */
   color: white;
   padding: 1rem 0;
   position: sticky;
@@ -49,7 +49,7 @@ body {
 }
 
 .menu-principal a:hover {
-  color: #cccccc;
+  color: #f5f5dc; /* beige claro */
 }
 
 .icono-carrito {
@@ -70,7 +70,7 @@ body {
 /* Botón Excel */
 .boton-excel {
   display: inline-block;
-  background: #1a1a1a;
+  background: #d2b48c;
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
@@ -81,7 +81,7 @@ body {
 }
 
 .boton-excel:hover {
-  background: #333333;
+  background: #c0a16b;
 }
 
 /* Packs */
@@ -94,7 +94,7 @@ body {
 }
 
 .pack {
-  background: #f8f8f8;
+  background: #fff8dc; /* tono crema suave */
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -116,7 +116,7 @@ body {
 /* Botón pack */
 .boton-pack {
   display: inline-block;
-  background: #1a1a1a;
+  background: #d2b48c;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -126,7 +126,7 @@ body {
 }
 
 .boton-pack:hover {
-  background: #333333;
+  background: #c0a16b;
 }
 
 /* QR */
