@@ -8,14 +8,12 @@
 </head>
 <body>
 
-  <!-- Barra superior -->
   <header class="barra-superior">
     <div class="contenedor-barra">
       <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
       <nav class="menu-principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="packs.html">Packs</a></li>
           <li><a href="sobre-mi.html">Sobre mí</a></li>
           <li><a href="excel.html">Excel</a></li>
           <li><a href="contacto.html">Contacto</a></li>
@@ -25,19 +23,29 @@
     </div>
   </header>
 
-  <!-- Contenido del pack -->
   <section class="contenedor">
     <h2>Pack 100 horas</h2>
-    <img src="pack100.png" alt="Imagen Pack 100 horas" class="imagen-pack" />
-    <p style="margin-top: 1rem;">
-      Este pack ofrece una transformación digital completa: rediseño web, estrategia de marketing, mentoría personalizada,
-      soporte continuo y formación. Ideal para empresas que quieren escalar y profesionalizar su presencia digital.
+    <p>
+      Este pack es una solución integral para empresas que quieren escalar su presencia digital y transformar su estrategia online. Es el más completo y personalizado de todos.
     </p>
-    <div style="margin-top: 2rem;">
-      <a href="carrito.html" class="boton-pack">Añadir al carrito</a>
-      <a href="carrito.html" class="boton-pack" style="margin-left: 1rem;">Ir al carrito</a>
-    </div>
+    <ul>
+      <li>Rediseño completo de tu sitio web</li>
+      <li>Estrategia de marketing digital avanzada</li>
+      <li>Mentoría personalizada durante todo el proceso</li>
+      <li>Formación en herramientas digitales para tu equipo</li>
+      <li>Soporte continuo y revisión mensual de resultados</li>
+    </ul>
+    <p><strong>Precio: 480 €</strong></p>
+    <a href="carrito.html" class="boton-pack" onclick="agregarAlCarrito('Pack 100 horas', 480)">Añadir al carrito</a>
   </section>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre, precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+  </script>
 
 </body>
 </html>
