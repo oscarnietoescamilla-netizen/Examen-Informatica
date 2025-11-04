@@ -1,61 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carrito - Impulso Digital</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Carrito — Impulso Digital</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="barra-superior">
-    <div class="contenedor-barra">
-      <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
-      <nav class="menu-principal">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="sobre-mi.html">Sobre mí</a></li>
-          <li><a href="excel.html">Excel</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      <a href="carrito.html" class="icono-carrito">🛒</a>
-    </div>
-  </header>
-
-  <section class="contenedor">
-    <h2>Tu carrito</h2>
-    <div id="carrito-lista"></div>
-    <h3 id="total"></h3>
-    <button onclick="vaciarCarrito()" class="boton-pack">Vaciar carrito</button>
-    <a href="index.html" class="boton-pack">Volver al inicio</a>
-  </section>
+  <div class="container">
+    <h1>Carrito</h1>
+    <div class="card" id="contenido-carrito"></div>
+    <p style="text-align:center;">
+      <a id="btn-pagar" class="btn" href="#" target="_blank">Pagar ahora</a>
+    </p>
+  </div>
 
   <script>
-    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    const lista = document.getElementById("carrito-lista");
-    const total = document.getElementById("total");
+    const params = new URLSearchParams(window.location.search);
+    const horas = params.get('pack');
+    const precios = { '20': 120, '40': 220, '100': 480 };
+    const precio = precios[horas] ?? null;
 
-    if (carrito.length === 0) {
-      lista.innerHTML = "<p>No hay productos en el carrito.</p>";
-      total.innerText = "";
+    const cont = document.getElementById('contenido-carrito');
+    const btnPagar = document.getElementById('btn-pagar');
+
+    if (!horas || !precio) {
+      cont.innerHTML = '<p>No hay ningún artículo en el carrito.</p>';
+      btnPagar.style.display = 'none';
     } else {
-      let html = "<ul>";
-      let suma = 0;
-      carrito.forEach(item => {
-        html += `<li>${item.nombre} - ${item.precio} €</li>`;
-        suma += item.precio;
-      });
-      html += "</ul>";
-      lista.innerHTML = html;
-      total.innerText = `Total: ${suma} €`;
-    }
-
-    function vaciarCarrito() {
-      localStorage.removeItem("carrito");
-      location.reload();
+      cont.innerHTML = `
+        <p>Has añadido el Pack de ${horas} horas</p>
+        <p>Precio: ${precio} €</p>
+      `;
+      btnPagar.href = `https://www.paypal.me/mburgadap/${precio}`;
     }
   </script>
-
 </body>
 </html>
