@@ -8,20 +8,21 @@
 </head>
 <body>
 
+ <!-- Barra superior -->
   <header class="barra-superior">
     <div class="contenedor-barra">
       <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
       <nav class="menu-principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="sobre-mi.html">Sobre mí</a></li>
+          <li><a href="packs.html">Packs</a></li>
           <li><a href="excel.html">Excel</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
       <a href="carrito.html" class="icono-carrito">🛒</a>
     </div>
   </header>
+
 
   <section class="contenedor">
     <h2>Pack 100 horas</h2>
@@ -36,13 +37,22 @@
       <li>Soporte continuo y revisión mensual de resultados</li>
     </ul>
     <p><strong>Precio: 480 €</strong></p>
-    <a href="carrito.html" class="boton-pack" onclick="agregarAlCarrito('Pack 100 horas', 480)">Añadir al carrito</a>
+
+    <div style="margin-top: 1rem;">
+      <a href="#" class="boton-pack" onclick="agregarAlCarrito('Pack 100 horas', 480)">Añadir al carrito</a>
+      <a href="carrito.html" class="boton-pack" style="margin-left: 1rem;">Ir al carrito</a>
+    </div>
   </section>
 
   <script>
     function agregarAlCarrito(nombre, precio) {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      carrito.push({ nombre, precio });
+      const existente = carrito.find(item => item.nombre === nombre);
+      if (existente) {
+        existente.quantity++;
+      } else {
+        carrito.push({ nombre, price: precio, quantity: 1 });
+      }
       localStorage.setItem("carrito", JSON.stringify(carrito));
     }
   </script>
