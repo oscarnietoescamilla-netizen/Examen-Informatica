@@ -8,14 +8,12 @@
 </head>
 <body>
 
-  <!-- Barra superior -->
   <header class="barra-superior">
     <div class="contenedor-barra">
       <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
       <nav class="menu-principal">
         <ul>
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="packs.html">Packs</a></li>
           <li><a href="sobre-mi.html">Sobre mí</a></li>
           <li><a href="excel.html">Excel</a></li>
           <li><a href="contacto.html">Contacto</a></li>
@@ -25,20 +23,29 @@
     </div>
   </header>
 
-  <!-- Contenido del pack -->
   <section class="contenedor">
     <h2>Pack 20 horas</h2>
-    <img src="pack20.png" alt="Imagen Pack 20 horas" class="imagen-pack" />
-    <p style="margin-top: 1rem;">
-      Este pack incluye un diagnóstico digital completo de tu negocio, análisis de presencia online,
-      y una estrategia básica para mejorar tu visibilidad y captar clientes. Ideal para emprendedores
-      que están comenzando.
+    <p>
+      Este pack está diseñado para emprendedores que están comenzando su camino digital. En estas 20 horas trabajaremos juntos para establecer una base sólida que te permita tener presencia online y empezar a captar clientes.
     </p>
-    <div style="margin-top: 2rem;">
-      <a href="carrito.html" class="boton-pack">Añadir al carrito</a>
-      <a href="carrito.html" class="boton-pack" style="margin-left: 1rem;">Ir al carrito</a>
-    </div>
+    <ul>
+      <li>Diagnóstico digital completo de tu negocio</li>
+      <li>Análisis de tu presencia online actual</li>
+      <li>Creación de una estrategia básica de visibilidad</li>
+      <li>Recomendaciones de herramientas gratuitas</li>
+      <li>Sesión final de revisión y ajustes</li>
+    </ul>
+    <p>Precio: <strong>120 €</strong></p>
+    <a href="carrito.html" class="boton-pack" onclick="agregarAlCarrito('Pack 20 horas', 120)">Añadir al carrito</a>
   </section>
+
+  <script>
+    function agregarAlCarrito(nombre, precio) {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.push({ nombre, precio });
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+  </script>
 
 </body>
 </html>
