@@ -8,7 +8,7 @@
 </head>
 <body>
 
- <!-- Barra superior -->
+  <!-- 🧭 Barra de navegación -->
   <header class="barra-superior">
     <div class="contenedor-barra">
       <h1 class="logo"><a href="index.html">Impulso Digital</a></h1>
@@ -23,34 +23,40 @@
     </div>
   </header>
 
+  <!-- 🛒 Contenido principal del carrito -->
   <main class="contenedor">
-    <h2>Tu carrito</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Pack</th>
-          <th>Cantidad</th>
-          <th>Precio</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody id="cart-items"></tbody>
-    </table>
+    <section class="carrito-section">
+      <h2 style="margin-top: 2rem;">🛍️ Tu carrito de compras</h2>
 
-    <div class="cart-total" style="text-align: right; margin-top: 1rem;">
-      <h3>Total: <span id="cart-total">0 €</span></h3>
-      <button id="clear-cart">Vaciar carrito</button>
-      <a id="checkout" class="boton-pack" href="#" target="_blank" style="margin-left: 1rem; background-color: #0070ba;">Pagar con PayPal</a>
-    </div>
+      <div class="tabla-carrito" style="overflow-x: auto; margin-top: 2rem;">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead style="background-color: #f0f0f0;">
+            <tr>
+              <th>Pack</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th>Eliminar</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items"></tbody>
+        </table>
+      </div>
+
+      <div class="cart-total" style="text-align: right; margin-top: 2rem;">
+        <h3>Total: <span id="cart-total">0 €</span></h3>
+        <button id="clear-cart" class="boton-pack" style="background-color: #c62828;">Vaciar carrito</button>
+        <a id="checkout" class="boton-pack" href="#" target="_blank" style="margin-left: 1rem; background-color: #0070ba;">Pagar con PayPal</a>
+      </div>
+    </section>
   </main>
 
+  <!-- 📜 Script de gestión del carrito -->
   <script>
     let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
     function updateCart() {
       const cartItems = document.getElementById('cart-items');
-      const cartCount = document.getElementById('cart-count');
       const cartTotal = document.getElementById('cart-total');
       const checkoutBtn = document.getElementById('checkout');
 
@@ -63,15 +69,14 @@
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${item.nombre}</td>
-          <td><input type="number" value="${item.quantity}" min="1" data-index="${index}" class="quantity-input"></td>
+          <td><input type="number" value="${item.quantity}" min="1" data-index="${index}" class="quantity-input" style="width: 60px;"></td>
           <td>${item.price} €</td>
           <td>${itemTotal.toFixed(2)} €</td>
-          <td><button class="remove-item" data-index="${index}">X</button></td>
+          <td><button class="remove-item boton-pack" data-index="${index}" style="background-color: #c62828;">X</button></td>
         `;
         cartItems.appendChild(tr);
       });
 
-      cartCount.textContent = cart.length;
       cartTotal.textContent = total.toFixed(2) + ' €';
       checkoutBtn.href = `https://www.paypal.me/mburgadap/${total.toFixed(2)}`;
       localStorage.setItem('carrito', JSON.stringify(cart));
