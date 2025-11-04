@@ -77,27 +77,13 @@ body {
 }
 
 /* Packs */
-<div class="packs-triangulo">
-  <div class="fila-superior">
-    <div class="pack">
-      <img src="pack20.png" alt="Pack 20 horas" />
-      <p>Diagnóstico digital, estrategia básica y herramientas gratuitas para empezar.</p>
-      <a href="pack-20.html" class="boton-pack">Ver Pack</a>
-    </div>
-    <div class="pack">
-      <img src="pack40.png" alt="Pack 40 horas" />
-      <p>Optimización web, automatización, redes sociales y análisis de métricas.</p>
-      <a href="pack-40.html" class="boton-pack">Ver Pack</a>
-    </div>
-  </div>
-  <div class="fila-inferior">
-    <div class="pack">
-      <img src="pack100.png" alt="Pack 100 horas" />
-      <p>Transformación digital completa, mentoría, formación y soporte continuo.</p>
-      <a href="pack-100.html" class="boton-pack">Ver Pack</a>
-    </div>
-  </div>
-</div>
+.packs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
 
 .pack {
   background: white;
@@ -139,45 +125,4 @@ body {
   margin: 2rem 0;
   font-size: 1rem;
   color: #555;
-}
-
-.packs-triangulo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-  margin-top: 3rem;
-}
-
-.fila-superior {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.fila-inferior {
-  display: flex;
-  justify-content: center;
-}
-
-.packs-triangulo .pack {
-  background: #fff8dc;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  width: 260px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.packs-triangulo .pack:hover {
-  transform: translateY(-5px);
-}
-
-.packs-triangulo .pack img {
-  width: 100%;
-  max-width: 200px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
 }
