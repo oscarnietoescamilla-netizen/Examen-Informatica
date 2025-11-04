@@ -1,20 +1,19 @@
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #fffaf0; /* fondo crema claro */
-  color: #3a3a3a;
+  background: #f9f9f9;
+  color: #333;
   text-align: center;
 }
 
 /* Barra superior */
 .barra-superior {
-  background: #d2b48c; /* tono crema tostado */
+  background: #004080;
   color: white;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .contenedor-barra {
@@ -29,14 +28,14 @@ body {
 .logo a {
   color: white;
   text-decoration: none;
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .menu-principal ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -44,12 +43,7 @@ body {
 .menu-principal a {
   color: white;
   text-decoration: none;
-  font-weight: 400;
-  transition: color 0.3s ease;
-}
-
-.menu-principal a:hover {
-  color: #f5f5dc; /* beige claro */
+  font-weight: 600;
 }
 
 .icono-carrito {
@@ -60,28 +54,26 @@ body {
 
 /* Imagen empresario */
 .foto-empresario {
-  max-width: 220px;
-  margin: 3rem auto 1rem;
+  max-width: 250px;
+  margin: 2rem auto;
   display: block;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 /* Botón Excel */
 .boton-excel {
   display: inline-block;
-  background: #d2b48c;
+  background: #004080;
   color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: bold;
   margin: 2rem auto;
-  transition: background 0.3s ease;
 }
 
 .boton-excel:hover {
-  background: #c0a16b;
+  background: #0066cc;
 }
 
 /* Packs */
@@ -89,56 +81,48 @@ body {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
   flex-wrap: wrap;
 }
 
 .pack {
-  background: #fff8dc; /* tono crema suave */
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  width: 240px;
-  transition: transform 0.3s ease;
-}
-
-.pack:hover {
-  transform: translateY(-5px);
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 220px;
 }
 
 .pack img {
   width: 100%;
   max-width: 180px;
   margin-bottom: 1rem;
-  border-radius: 8px;
 }
 
-/* Botón pack */
 .boton-pack {
   display: inline-block;
-  background: #d2b48c;
+  background: #004080;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.3s ease;
+  font-weight: bold;
 }
 
 .boton-pack:hover {
-  background: #c0a16b;
+  background: #0066cc;
 }
 
 /* QR */
 .qr img {
-  max-width: 140px;
-  margin: 3rem auto 1rem;
+  max-width: 150px;
+  margin: 2rem auto;
   display: block;
 }
 
 /* Contacto */
 .contacto {
   margin: 2rem 0;
-  font-size: 0.95rem;
-  color: #666;
+  font-size: 1rem;
+  color: #555;
 }
