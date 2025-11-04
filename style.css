@@ -140,3 +140,44 @@ body {
   font-size: 1rem;
   color: #555;
 }
+
+.packs-triangulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.fila-superior {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.fila-inferior {
+  display: flex;
+  justify-content: center;
+}
+
+.packs-triangulo .pack {
+  background: #fff8dc;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  width: 260px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.packs-triangulo .pack:hover {
+  transform: translateY(-5px);
+}
+
+.packs-triangulo .pack img {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
