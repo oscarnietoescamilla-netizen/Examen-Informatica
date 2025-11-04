@@ -55,6 +55,13 @@
   <script>
     let cart = JSON.parse(localStorage.getItem('carrito')) || [];
 
+    // Actualiza precios si los packs están en el carrito
+    cart.forEach(item => {
+      if (item.nombre === "Pack 20 horas") item.price = 150;
+      if (item.nombre === "Pack 40 horas") item.price = 270;
+      if (item.nombre === "Pack 100 horas") item.price = 550;
+    });
+
     function updateCart() {
       const cartItems = document.getElementById('cart-items');
       const cartTotal = document.getElementById('cart-total');
