@@ -77,13 +77,27 @@ body {
 }
 
 /* Packs */
-.packs {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-top: 2rem;
-}
+<div class="packs-triangulo">
+  <div class="fila-superior">
+    <div class="pack">
+      <img src="pack20.png" alt="Pack 20 horas" />
+      <p>Diagnóstico digital, estrategia básica y herramientas gratuitas para empezar.</p>
+      <a href="pack-20.html" class="boton-pack">Ver Pack</a>
+    </div>
+    <div class="pack">
+      <img src="pack40.png" alt="Pack 40 horas" />
+      <p>Optimización web, automatización, redes sociales y análisis de métricas.</p>
+      <a href="pack-40.html" class="boton-pack">Ver Pack</a>
+    </div>
+  </div>
+  <div class="fila-inferior">
+    <div class="pack">
+      <img src="pack100.png" alt="Pack 100 horas" />
+      <p>Transformación digital completa, mentoría, formación y soporte continuo.</p>
+      <a href="pack-100.html" class="boton-pack">Ver Pack</a>
+    </div>
+  </div>
+</div>
 
 .pack {
   background: white;
