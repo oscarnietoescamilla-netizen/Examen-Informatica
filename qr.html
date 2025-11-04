@@ -3,55 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QR - Excel Verso</title>
+  <title>Carta de Presentación - Excel Verso</title>
   <link rel="stylesheet" href="style.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f2f2f2;
+      background: #f9f9f9;
       color: #333;
     }
 
-    .contenedor {
-      padding: 1.5rem;
+    main {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
       text-align: center;
     }
 
     .qr-img {
       max-width: 180px;
-      margin: 1rem auto;
+      margin: 2rem auto;
       display: block;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .bloque {
       background: white;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      text-align: left;
     }
 
     .bloque h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: #004080;
     }
 
     .bloque p {
       font-size: 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .boton-volver {
       display: inline-block;
       background: #004080;
       color: white;
-      padding: 0.75rem 1.25rem;
+      padding: 0.75rem 1.5rem;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      margin-top: 1rem;
+      margin-top: 2rem;
+      transition: background 0.3s ease;
     }
 
     .boton-volver:hover {
@@ -61,35 +68,37 @@
 </head>
 <body>
 
-  <div class="contenedor">
-    <img src="empresario.png" alt="Foto del empresario" class="foto-empresario" />
+  <main>
+    <h1 style="color:#004080;">📄 Carta de Presentación</h1>
+    <p style="max-width: 700px; margin: 1rem auto;">
+      Escanea el siguiente código QR para acceder a nuestra carta de presentación digital. En ella encontrarás quiénes somos, qué hacemos y cómo podemos ayudarte a impulsar tu proyecto con Excel Verso.
+    </p>
 
-    <div class="bloque">
-      <h2>¿Qué ofrece Excel Verso?</h2>
+    <img src="qr.png" alt="Código QR de presentación" class="qr-img" />
+
+    <section class="bloque">
+      <h2>🚀 ¿Qué es Excel Verso?</h2>
       <p>
-        Servicios de consultoría digital para emprendedores y pequeñas empresas. Desde diagnósticos básicos hasta transformaciones completas:
-        optimización web, automatización, marketing digital, formación y mentoría.
+        Excel Verso es una iniciativa de consultoría digital especializada en formación, automatización y estrategia online. Ofrecemos soluciones prácticas para emprendedores, autónomos y pequeñas empresas que quieren crecer en el entorno digital.
       </p>
-    </div>
+    </section>
 
-    <div class="bloque">
-      <h2>¿Quién soy?</h2>
+    <section class="bloque">
+      <h2>👤 Sobre mí</h2>
       <p>
-        Soy Oscar Nieto, consultor digital con más de 10 años de experiencia ayudando a negocios a crecer online.
-        He trabajado con más de 120 empresas en toda España, diseñando estrategias efectivas y enseñando herramientas clave.
+        Soy Oscar Nieto, consultor digital con más de una década de experiencia en el sector. He trabajado con más de 120 negocios en toda España, ayudándoles a profesionalizar su presencia online, automatizar procesos y dominar herramientas clave como Excel, Canva y WordPress.
       </p>
-    </div>
+    </section>
 
-    <div class="bloque">
-      <h2>¿Qué he hecho?</h2>
+    <section class="bloque">
+      <h2>📈 Experiencia y resultados</h2>
       <p>
-        He liderado proyectos de digitalización, rediseñado webs, automatizado procesos y formado equipos en herramientas como Excel, Canva,
-        WordPress y redes sociales. Mi enfoque es práctico, cercano y orientado a resultados.
+        He liderado proyectos de transformación digital, rediseñado sitios web, implementado sistemas de automatización y formado equipos en herramientas digitales. Mi enfoque es directo, cercano y orientado a resultados medibles.
       </p>
-    </div>
+    </section>
 
-    <a href="index.html" class="boton-volver">Volver al inicio</a>
-  </div>
+    <a href="index.html" class="boton-volver">← Volver al inicio</a>
+  </main>
 
 </body>
 </html>
